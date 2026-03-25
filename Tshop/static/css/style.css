@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aqua;
+}
+
+#carouselExampleCaptions{
+    width: 100%;
+}
+
+#carouselExampleCaptions .carousel-inner{
+    width: 100%;
+    aspect-ratio: 12/5;
+    overflow: hidden;
+
+}
+
+#carouselExampleCaptions .carousel-item{
+     width: 100%;
+    height: 100%;
+}
+
+#carouselExampleCaptions .carousel-item img{
+   height: 100%;
+   width: 100%;
+   object-fit: contain;
+}

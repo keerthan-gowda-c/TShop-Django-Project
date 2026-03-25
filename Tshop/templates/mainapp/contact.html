@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Get in Touch</h1>
+        <p class="lead">We’d love to hear from you. Reach out for any queries or support.</p>
+    </div>
+
+    <div class="row">
+        <!-- Contact Form -->
+        <div class="col-md-7">
+            <div class="card shadow-sm p-4">
+                <h3 class="mb-4">Send Us a Message</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" rows="5" class="form-control" placeholder="Write your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-5">
+            <div class="p-4 bg-light rounded shadow-sm">
+                <h3>Contact Information</h3>
+                <p class="mt-3"><strong>📍 Address:</strong><br>123 Tea Street, Bengaluru, India</p>
+                <p><strong>📞 Phone:</strong><br>+91 98765 43210</p>
+                <p><strong>📧 Email:</strong><br>support@tshop.com</p>
+                <p><strong>⏰ Hours:</strong><br>Mon - Sat: 9 AM - 7 PM</p>
+            </div>
+
+            <div class="mt-4 text-center">
+                <h5>Follow Us</h5>
+                <a href="#" class="btn btn-outline-dark btn-sm m-1">Facebook</a>
+                <a href="#" class="btn btn-outline-dark btn-sm m-1">Instagram</a>
+                <a href="#" class="btn btn-outline-dark btn-sm m-1">Twitter</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section (Optional) -->
+    <div class="mt-5">
+        <h3 class="text-center mb-3">Find Us</h3>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://maps.google.com/maps?q=Bengaluru&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
