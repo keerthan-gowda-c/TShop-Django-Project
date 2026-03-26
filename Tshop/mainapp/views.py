@@ -33,3 +33,34 @@ def contactView(request):
         template_name = template,
         context = {}
     )
+
+from django.views.generic import(
+    CreateView,
+    ListView, DetailView,
+    UpdateView,
+    DeleteView
+)
+
+class CarouselImageList(ListView):
+    template_name = 'mainapp/carousel/carousel_list.html'
+    model = CarouselImage
+    context_object_name = 'carousel_images'
+
+class AddCarouselImage(CreateView):
+    model = CarouselImage
+    template_name = 'mainapp/carousel/add_carousel.html'
+    fields = '__all__'
+    success_url = '/'
+
+
+class UpdateCarouselImage(UpdateView):
+    model = CarouselImage
+    template_name = 'mainapp/carousel/edit_carousel.html'
+    fields = '__all__'
+    success_url = '/'
+
+
+class DeleteCarouselImage(DeleteView):
+    model = CarouselImage
+    template_name = 'mainapp/carousel/del_carousel.html'
+    success_url = '/'
