@@ -18,9 +18,20 @@
 
 .card:hover {
     transform: translateY(-5px);
-    background-color: rgb(248, 255, 206);
+    background-color: rgb(130, 222, 255);
 }
-
+.add-button{
+    border: 1px solid ;
+}
+.add-button:hover{
+    background-color: rgb(146, 255, 130);
+    /* border: 1px solid; */
+    box-shadow: 1px 1px 3px 2px grey;
+}
+.carousel-card{
+    /* border: 1px solid; */
+     background-color: rgb(255, 222, 182);
+}
 #carouselExampleCaptions{
     width: 100%;
 }
