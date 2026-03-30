@@ -9,8 +9,8 @@
         <h5 class="card-title fw-semibold">{{carousel_image.title|title}}</h5>
         <p class="card-text text-muted small flex-grow-1">{{carousel_image.cpation|truncatechars:80}}</p>
         <div class="d-flex gap-2 mt-auto">
-            <a href="{% url 'edit_carousel' carousel_image.pk %}" class="btn btn-outline-success w-100">Update</a>
-            <a href="{% url 'del_carousel' carousel_image.pk %}" class="btn btn-outline-danger w-100">Delete</a>
+            <a href="{% url 'edit_carousel' carousel_image.pk %}" class="bi bi-pencil-fill" title="Update"></a>
+            <a href="{% url 'del_carousel' carousel_image.pk %}" class="bi bi-trash" title="Delete"></a>
         </div>
     </div>
 </div>

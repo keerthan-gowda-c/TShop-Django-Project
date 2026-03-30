@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{{product.title}}
+{% endblock %}
+
+{% block content %}
+<section class="container py-5 row">
+    <div class="col">
+        <img src="{{product.thumbnail.url}}" alt="" class="w-100">
+    </div>
+    <div class="col">
+<div>
+    <h3>{{product.title}}</h3>
+</div>
+    </div>
+</section>
+{% endblock %}

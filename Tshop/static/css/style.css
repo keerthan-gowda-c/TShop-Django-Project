@@ -24,7 +24,7 @@ body{
     /* border: 1px solid white; */
     color: black;
     background-color:rgb(202, 214, 200) ;
-    /* transition: 500ms ; */
+    transition: 200ms ;
 
 }
 .add-button:hover{
@@ -34,7 +34,7 @@ body{
     /* border: 2px green; */
     
     box-shadow: 0px 0px 10px 2px rgb(128, 128, 128);
-    /* transition: 200ms ; */
+    transition: 200ms ;
 }
 /* .carousel-card{
     border: 1px solid;
