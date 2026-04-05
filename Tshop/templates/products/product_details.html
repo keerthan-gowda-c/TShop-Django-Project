@@ -1,20 +1,4 @@
 {% extends 'base/base.html' %}
-<!-- 
-
-
-
-
-<section class="container py-5 row">
-    <div class="col">
-        <img src="{{product.thumbnail.url}}" alt="" class="w-100">
-    </div>
-    <div class="col">
-<div>
-    <h3>{{product.title}}</h3>
-</div>
-    </div>
-</section>
- -->
 
 
 
@@ -23,6 +7,7 @@
 {{ product.title }}
 
 {% endblock %}
+
 
 {% block content %}
 
@@ -78,6 +63,18 @@
 
 <section>
     <h2>Add Product Images</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+
+        {% include 'base/includes/basicFormField.html' %}
+
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
 </section>
 
 {% endblock %}

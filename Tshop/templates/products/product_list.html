@@ -15,14 +15,7 @@ Products
         <a href="{% url 'add_product' %}" class="btn add-button"><i class="bi bi-file-earmark-plus-fill"></i></a>
     </div>
 
-<div class="row carousel-card gt-4">
-    {% for product in products %}
-    
-    {% include 'products/includes/productCard.html' %}
-    {% empty %}
-    <p>No products added yet.</p>
-    {% endfor %}
-</div>
+{% include 'products/includes/productSection.html' %}
 
 </div>
 

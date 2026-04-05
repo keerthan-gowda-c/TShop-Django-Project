@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import CarouselImage
 
+from products.models import Product
 from django.urls import reverse_lazy
 # Create your views here.
 
@@ -8,7 +9,9 @@ def homeView(request):
     template = 'mainapp/home.html'
     context = {
         'carousel_images' : CarouselImage.objects.filter(is_active = True),
-        'name' : "Tea Shop"
+        'name' : "Tea Shop",
+        'products' : Product.objects.all(),
+        
     }
     return render(
         request = request,

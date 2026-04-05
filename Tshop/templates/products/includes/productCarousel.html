@@ -1,57 +1,106 @@
-<div id="product-image-root" class="product-image">
 
-    <div class="row g-3">
+<div id="productCarousel"
+     class="carousel slide product-carousel"
+     data-bs-ride="carousel"
+     data-bs-interval="2500"
+     data-bs-pause="false">
 
-        <!-- THUMBNAILS -->
-        <div class="col-3">
-            <div id="product-image-thumbs" class="product-image__thumbs d-flex flex-column gap-2">
-                {% for img in product.images.all %}
-                    <img src=" {{product.thumbnail.url }}"
-                         class="product-image__thumb"
-                         onclick="productImageChange('{{product.thumbnail.url}}', this)">
-                {% endfor %}
-            </div>
+  <div class="carousel-inner">
+
+    {% for img in product.images.all %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+
+      <div class="product-carousel__wrapper">
+
+        <!-- IMAGE -->
+        <img src="{{ img.image.url }}"
+             class="product-carousel__img "
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal{{ img.pk }}">
+
+        <!-- ACTION BUTTONS -->
+        <div class="product-carousel__actions">
+
+          <a href="{% url 'edit_prod_image' img.pk %}"
+             class="btn btn-light btn-sm">
+            <i class="bi bi-pencil-square"></i>
+          </a>
+
+          <a href="{% url 'del_prod_image' img.pk %}"
+             class="btn btn-danger btn-sm">
+            <i class="bi bi-trash"></i>
+          </a>
+
         </div>
-
-        <!-- MAIN IMAGE -->
-        <div class="col-9">
-            <div class="product-image__main-wrapper position-relative">
-
-                <!-- EDIT -->
-                <a href="#"
-                   class="product-image__edit position-absolute top-50 start-0 translate-middle-y"
-                   title="Edit">
-                    <i class="bi bi-pencil-square"></i>
-                </a>
-
-                <!-- DELETE -->
-                <a href="#"
-                   class="product-image__delete position-absolute top-50 end-0 translate-middle-y"
-                   title="Delete">
-                    <i class="bi bi-trash"></i>
-                </a>
-
-                <div class="ratio ratio-4x3 product-image__ratio">
-                    <img id="product-image-main"
-                         src="{{product.thumbnail.url}}"
-                         class="product-image__main-img"
-                         alt="">
-                </div>
-
-            </div>
+ <!-- CAPTION -->
+        {% if img.caption %}
+        <div class="product-carousel__caption">
+          {{ img.caption }}
         </div>
+        {% endif %}
+
+      </div>
 
     </div>
+
+    <!-- FULLSCREEN MODAL -->
+    <div class="modal fade" id="imageModal{{ img.pk }}" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark">
+
+          <div class="modal-header border-0">
+            <h6 class="text-white">{{ img.caption }}</h6>
+            <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body d-flex justify-content-center align-items-center">
+            <img src="{{ img.image.url }}" class="product-modal__img">
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endfor %}
+
+  </div>
+
+  <!-- NAV BUTTONS -->
+  <button class="carousel-control-prev" type="button"
+          data-bs-target="#productCarousel"
+          data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button"
+          data-bs-target="#productCarousel"
+          data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
 </div>
 
-<script id="pimg002">
-function productImageChange(src, el) {
-    document.getElementById("product-image-main").src = src;
 
-    // active thumbnail highlight
-    document.querySelectorAll(".product-image__thumb").forEach(img => {
-        img.classList.remove("product-image__thumb--active");
-    });
-    el.classList.add("product-image__thumb--active");
-}
+<!-- THUMBNAILS -->
+<div class="product-carousel__thumbs">
+
+  {% for img in product.images.all %}
+    <img src="{{ img.image.url }}"
+         data-bs-target="#productCarousel"
+         data-bs-slide-to="{{ forloop.counter0 }}"
+         class="product-thumb {% if forloop.first %}active-thumb{% endif %}">
+  {% endfor %}
+</div>
+
+
+{% block extra_js %}
+<script>
+const carousel = document.getElementById('productCarousel');
+const thumbs = document.querySelectorAll('.product-thumb');
+
+carousel.addEventListener('slid.bs.carousel', function (e) {
+    thumbs.forEach(t => t.classList.remove('active-thumb'));
+    thumbs[e.to].classList.add('active-thumb');
+});
 </script>
+{% endblock %}

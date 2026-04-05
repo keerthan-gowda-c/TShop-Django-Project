@@ -18,7 +18,7 @@ class Product(models.Model):
 class ProductImage(models.Model):
     image = models.ImageField(upload_to = 'products/images/')
     caption = models.CharField(max_length = 50)
-    product = models.ForeignKey(Product, on_delete = models.CASCADE, related_name='image')
+    product = models.ForeignKey(Product, on_delete = models.CASCADE, related_name='images')
 
     def __str__(self):
         return f'{self.caption} image of > Product {self.product.title}'

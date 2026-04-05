@@ -24,7 +24,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls')),
-    path('products/', include('products.urls'))
+    path('products/', include('products.urls')),
+    path('accounts/',include('authentication.urls')),
+    path('accounts/',include('django.contrib.auth.urls'))
 ]
 
 # When the DEBUG variable is set to True in setting.py, we know that the project is still in development.

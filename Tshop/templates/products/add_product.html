@@ -9,11 +9,18 @@ Add Product
 <section>
     <div class="card">
         <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form.as_p}}
+    {% csrf_token %}
 
-            <button type="submit">Save</button>
-        </form>
+    {% for field in form %}
+        {% include 'base/includes/basicFormField.html' %}
+    {% endfor %}
+
+    <div class="text-center mt-4 mb-3">
+        <button type="submit" class="btn btn-primary px-4 py-2">
+            Save
+        </button>
+    </div>
+</form>
     </div>
 </section>
 {% endblock %}
