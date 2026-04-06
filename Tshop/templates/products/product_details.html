@@ -61,6 +61,7 @@
 
 </section>
 
+{% if user.is_staff %}
 <section>
     <h2>Add Product Images</h2>
 
@@ -76,5 +77,6 @@
 
     </form>
 </section>
+{% endif %}
 
 {% endblock %}

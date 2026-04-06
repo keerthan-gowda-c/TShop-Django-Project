@@ -5,7 +5,7 @@ from .models import Product, ProductImage
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['title','desc','thumbnail','price','stock']
+        fields = ['title','desc','category','thumbnail','price','stock']
         widgets = {
             'title' : forms.TextInput(attrs = {
                 'class' : 'form-control w-50 align-item-center',
