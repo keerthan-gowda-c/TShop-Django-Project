@@ -64,6 +64,7 @@
                         <ul class="dropdown-menu">
                            
                             {% if user.is_authenticated %}
+                             <li><a class="dropdown-item" href="{% url 'cart_page' %}">My CART</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                                 <form action="{% url 'logout' %}" method="post">

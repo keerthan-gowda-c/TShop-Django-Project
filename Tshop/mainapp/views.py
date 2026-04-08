@@ -67,4 +67,4 @@ class DeleteCarouselImage(DeleteView):
     model = CarouselImage
     template_name = 'mainapp/carousel/del_carousel.html'
     success_url = reverse_lazy('carousel_page')
-    context_object_name = 'carousel_images' 
+    context_object_name = 'carousel_image' 

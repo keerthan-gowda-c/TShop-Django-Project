@@ -2,6 +2,8 @@ from django import forms
 
 from .models import Product, ProductImage
 
+
+
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
@@ -11,6 +13,7 @@ class ProductForm(forms.ModelForm):
                 'class' : 'form-control w-50 align-item-center',
                 'placeholder' : 'Product Title'
             }),
+            
             'desc' : forms.Textarea(attrs = {
                 'class' : 'form-control w-50',
                 'placeholder' : 'Description',
@@ -48,3 +51,5 @@ class ProductImageForm(forms.ModelForm):
             })
 
         }
+
+

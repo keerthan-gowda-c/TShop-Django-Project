@@ -26,7 +26,9 @@ urlpatterns = [
     path('', include('mainapp.urls')),
     path('products/', include('products.urls')),
     path('accounts/',include('authentication.urls')),
-    path('accounts/',include('django.contrib.auth.urls'))
+    path('accounts/',include('django.contrib.auth.urls')),
+
+    path('card/', include('cart.urls'))
 ]
 
 # When the DEBUG variable is set to True in setting.py, we know that the project is still in development.

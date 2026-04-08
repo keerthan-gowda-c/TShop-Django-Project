@@ -15,4 +15,6 @@ urlpatterns = [
     path('send-otp/', send_otp_mail, name='send_otp'),
     path('verify-otp/', verify_otp, name='verify_otp'),
     path('set-new-password/', set_new_password, name='set_new_password'),
+
+    
 ]

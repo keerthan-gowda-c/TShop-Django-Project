@@ -1,9 +1,9 @@
 from django.db import models
-
 # Create your models here.
 
 class Category(models.Model):
     title = models.CharField(max_length = 200)
+   
 
     def __str__(self):
         return f'Category : {self.title.capitalize()}'
@@ -11,7 +11,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length = 255)
-    category = models.ForeignKey(Category, on_delete = models.SET_NULL, null = True, blank = True)
+    
     desc = models.TextField(max_length = 500)
     thumbnail = models.ImageField(upload_to = 'products/thumbnails/')
     price = models.PositiveIntegerField()
